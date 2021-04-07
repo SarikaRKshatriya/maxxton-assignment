@@ -1,0 +1,81 @@
+
+<div class="functions">
+    <button (click)="allCandidates()">
+        Show all Candidates Info
+    </button>
+    <button (click)="sortByName()">
+        Sort By Name,Joining Date
+    </button>
+    <div>
+        <input type="text" [(ngModel)]="searchValue" placeholder="Search By Name">
+        <button (click)="searchByName()">
+            Search by Name
+        </button>
+    </div>
+   
+    <button (click)="experience()">
+        2+ Experience
+    </button>
+   
+    <button (click)="countByDept()">
+        Distinct Department & Count
+    </button>
+    <button (click)="removeDevelopment()">
+        Remove Development Candidates
+    </button>
+</div>
+
+<div *ngIf="!showDept">
+    <table>
+        <caption>Candidates Details</caption>
+        <thead>
+            <tr style="background-color: grey;">
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Joining Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor= "let candidate of candidateData">
+                <td>
+                    {{candidate.id}}
+                </td>
+                <td>
+                    {{candidate.name}}
+                </td>
+                <td>
+                    {{candidate.department}}
+                </td>
+                <td>
+                    {{candidate.joining_date}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="showDept">
+    <table>
+        <caption>Department Details</caption>
+        <thead>
+            <tr>
+                <th>Department</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor= "let dept of deptData">
+                <td>
+                    {{dept.department}}
+                </td>
+                <td>
+                    {{dept.count}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
